@@ -31,14 +31,14 @@ This guide provides a deep but practical understanding of the building blocks of
 
 You can run a pretrained model like BART to summarize text using Hugging Face’s `transformers` library:
 
-;;;python
+```python
 from transformers import pipeline
 
 summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
 text = "Germany is a federal republic with 16 states..."
 summary = summarizer(text, max_length=60, min_length=15, do_sample=False)
 print(summary[0]['summary_text'])
-;;;
+```
 
 <br>
 <br>
@@ -47,9 +47,9 @@ print(summary[0]['summary_text'])
 
 Install requirements using Poetry:
 
-;;;bash
+```bash
 poetry add transformers torch
-;;;
+```
 
 Optionally containerize the setup with a Dockerfile using Python 3.10 and system dependencies for PyTorch and Hugging Face.
 
