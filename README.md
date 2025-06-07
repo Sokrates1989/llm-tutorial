@@ -115,12 +115,8 @@ When generating text, models predict one word/token at a time based on probabili
 
 # 🚀 Summary
 
-✅ **You can now load and use pretrained LLMs via Hugging Face**
-
-✅ **You understand how models tokenize and generate output**
-
-✅ **You grasp the differences between major LLM architectures (GPT, BERT, etc.)**
-
-✅ **You know how inference and decoding affect results**
-
-✅ **You're ready to go deeper: fine-tuning, RAG, or custom deployments**
+✅ **You can now load and use pretrained LLMs via Hugging Face**  
+✅ **You understand how models tokenize and generate output**  
+✅ **You grasp the differences between major LLM architectures (GPT, BERT, etc.)**  
+✅ **You know how inference and decoding affect results**  
+✅ **You're ready to go deeper: fine-tuning, RAG, or custom deployments**  
