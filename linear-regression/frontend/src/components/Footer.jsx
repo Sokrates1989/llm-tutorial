@@ -21,7 +21,7 @@ function Footer() {
         </small>
       </p>
       <br />
-  </footer>
+    </footer>
   );
 }
 

@@ -1,9 +1,9 @@
 // src/api/car_sales.js
 const API_BASE_URL = window._env_?.VITE_BACKEND_URL || "http://localhost:8000";
 
-export async function fetchPlotImageUrl() {
+export async function fetchPlotImageUrl(endpoint = "plot") {
   try {
-    const response = await fetch(`${API_BASE_URL}/car-sales/plot`);
+    const response = await fetch(`${API_BASE_URL}/car-sales/${endpoint}`);
     if (!response.ok) throw new Error("Failed to load plot image");
     return response.url;
   } catch (err) {

@@ -23,7 +23,7 @@ function CarSalesTrainTest() {
 
         <div className="car-sales-container">
           <h2>Car Sales Train Test</h2>
-          <Plot />
+          <Plot plotEndpoint="plot-train-test" />
           <PredictionInput />
         </div>
 
