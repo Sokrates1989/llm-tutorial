@@ -3,7 +3,7 @@ import Plot from "./Plot";
 import PredictionInput from "./PredictionInput";
 import "./styles/car-sales.css"; 
 
-function CarSales() {
+function CarSalesTrainTest() {
   return (
     <div className="car-sales-container">
       <h2>Car Sales Predictor</h2>
@@ -13,4 +13,4 @@ function CarSales() {
   );
 }
 
-export default CarSales;
+export default CarSalesTrainTest;
