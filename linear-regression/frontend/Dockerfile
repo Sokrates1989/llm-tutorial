@@ -1,6 +1,10 @@
 # --- Stage 1: Build the Vite app ---
 FROM node:24 AS builder
 
+# Bake Image tag into the image.
+ARG VITE_IMAGE_TAG=local_docker
+ENV VITE_IMAGE_TAG=$VITE_IMAGE_TAG
+
 WORKDIR /app
 
 COPY package*.json ./
