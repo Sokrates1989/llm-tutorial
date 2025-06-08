@@ -20,6 +20,7 @@ function Footer() {
         Backend: {backendUrl}, Image: {imageTag}
         </small>
       </p>
+      <br />
   </footer>
   );
 }
