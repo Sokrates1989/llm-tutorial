@@ -16,15 +16,13 @@ r = redis.Redis.from_url(settings.REDIS_URL)
 
 
 # 🔐 Enable CORS.
-origins = [
-    "http://localhost:8081",
-]
+origins = [origin.strip() for origin in settings.ALLOWED_CORS_ORIGINS.split(",") if origin.strip()]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,            # Allow only these origins
+    allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],              # Or restrict e.g. to ["GET", "POST"]
-    allow_headers=["*"],              # Or restrict e.g. to ["Authorization", "Content-Type"]
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
