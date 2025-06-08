@@ -4,7 +4,7 @@ import PredictionInput from "./PredictionInput";
 
 function CarSales() {
   return (
-    <div>
+    <div className="car-sales-container">
       <h2>Car Sales Predictor</h2>
       <Plot />
       <PredictionInput />
