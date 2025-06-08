@@ -1,4 +1,4 @@
-const API_BASE_URL = window._env_?.VITE_BACKEND_URL || "http://localhost:8001";
+const API_BASE_URL = window._env_?.VITE_BACKEND_URL || "http://localhost:8000";
 
 export async function apiFetch(path, { method = "GET", body, token } = {}) {
   const headers = {

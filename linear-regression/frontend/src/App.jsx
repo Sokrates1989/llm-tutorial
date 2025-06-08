@@ -7,6 +7,9 @@ import Footer from "./components/Footer";
 // Test component.
 import Test from "./components/Test";
 
+// Car sales module.
+import CarSales from "./components/car-sales/CarSales";
+
 
 function App() {
   return (
@@ -14,6 +17,8 @@ function App() {
       <Header title="Property based Header"/>
 
       <Test />
+
+      <CarSales />
 
       <Footer />
     </>
