@@ -4,11 +4,12 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import redis
 from api.settings import settings
-from api.routes import test, files
+from api.routes import test, files, car_sales
 
 app = FastAPI()
 app.include_router(test.router)
 app.include_router(files.router)
+app.include_router(car_sales.router)
 
 
 print(f"🔧 Connecting to Redis at: {settings.REDIS_URL}")
