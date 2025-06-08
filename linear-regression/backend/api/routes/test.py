@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from backend.Neo4jHandler import Neo4jHandler
 from pathlib import Path
-from fastapi.responses import FileResponse
+from fastapi.responses import JSONResponse
 
 router = APIRouter(tags=["test"], prefix="/test")
 
@@ -17,3 +17,8 @@ async def test_database():
         return {"status": "success", "data": result}
     except Exception as e:
         return {"status": "error", "message": str(e)}
+
+# Endpoint for generating a report.
+@router.get("/test")
+async def test():
+    return JSONResponse(content={"message": "✅ Your Backend is Working!"})
