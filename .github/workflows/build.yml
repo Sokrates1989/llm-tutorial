@@ -31,10 +31,10 @@ jobs:
 
       - name: 🚀 Build & Push Backend
         run: |
-          docker build -t $BACKEND_IMAGE:$BACKEND_IMAGE_VERSION $BACKEND_PATH
+          docker buildx build --load -t $BACKEND_IMAGE:$BACKEND_IMAGE_VERSION $BACKEND_PATH
           docker push $BACKEND_IMAGE:$BACKEND_IMAGE_VERSION
 
       - name: 🚀 Build & Push Frontend
         run: |
-          docker build -t $FRONTEND_IMAGE:$FRONTEND_IMAGE_VERSION $FRONTEND_PATH
+          docker buildx build --load -t $FRONTEND_IMAGE:$FRONTEND_IMAGE_VERSION $FRONTEND_PATH
           docker push $FRONTEND_IMAGE:$FRONTEND_IMAGE_VERSION
