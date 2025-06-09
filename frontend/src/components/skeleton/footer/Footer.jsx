@@ -1,7 +1,9 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 import './footer.css';
 
 function Footer() {
+  const { t } = useTranslation();
 
   // Dynamically get current year at runtime.
   const currentYear = new Date().getFullYear();
@@ -15,7 +17,7 @@ function Footer() {
 
   return (
     <footer>
-      <p>Copyright © {currentYear} {companyName}. All rights reserved.</p>
+      <p>Copyright © {currentYear} {companyName}. {t("footer.rights_reserved")}</p>
       <p>
         <small style={{ fontSize: "0.8rem"}}>
         Backend: {backendUrl}, Image: {imageTag}

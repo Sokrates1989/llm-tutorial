@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 
 // Header, footer, Sidebar, Navigation.
 import Header from "../skeleton/header/Header";
@@ -11,9 +12,10 @@ import Test from "./test/Test";
 
 
 function Home() {
+  const { t } = useTranslation();
   return (
     <>
-      <Header title="Linear Regression" />
+      <Header title={t("home.title")} />
       <div className="app-body">
         <Sidebar currentSelection="home" />
         <div className="page-wrapper">

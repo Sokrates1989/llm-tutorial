@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from 'react-i18next';
 import api from "../../../api";
 
 export default function Plot({ plotEndpoint = "plot" }) {
+  const { t } = useTranslation();
   const [plotUrl, setPlotUrl] = useState(null);
 
   useEffect(() => {
@@ -14,15 +16,15 @@ export default function Plot({ plotEndpoint = "plot" }) {
 
   return (
     <div style={{ marginTop: "1rem" }}>
-      <h3>Price vs Kilometer</h3>
+      <h3>{t("plot.heading")}</h3>
       {plotUrl ? (
         <img
           src={plotUrl}
-          alt="Car Price Plot"
+          alt={t("plot.alt")}
           style={{ maxWidth: "100%", border: "1px solid #ccc", borderRadius: "8px" }}
         />
       ) : (
-        <p>Loading plot...</p>
+        <p>{t("plot.loading")}</p>
       )}
     </div>
   );

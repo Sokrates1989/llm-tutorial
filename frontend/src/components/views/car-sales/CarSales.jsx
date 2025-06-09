@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 
 // Header, footer, Sidebar, Navigation.
 import Header from "../../skeleton/header/Header";
@@ -12,9 +13,10 @@ import PredictionInput from "./PredictionInput";
 
 
 function CarSales() {
+  const { t } = useTranslation();
   return (
     <>
-      <Header title="Linear Regression - Car Sales" />
+      <Header title={t("car_sales.title")} />
       <div className="app-body">
         <Sidebar currentSelection="car-sales" />
         <div className="page-wrapper">
@@ -22,7 +24,7 @@ function CarSales() {
 
 
           <div className="main-content">
-            <h2>Car Sales Predictor</h2>
+            <h2>{t("car_sales.predictor_heading")}</h2>
             <Plot />
             <PredictionInput />
           </div>

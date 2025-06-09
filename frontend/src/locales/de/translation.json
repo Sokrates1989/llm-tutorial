@@ -7,5 +7,31 @@
   "navbar": {
     "profile": "Profil",
     "logout": "Abmelden"
+  },
+  "footer": {
+    "rights_reserved": "Alle Rechte vorbehalten."
+  },
+  "home": {
+    "title": "KI Lernen"
+  },
+  "car_sales": {
+    "title": "KI Lernen - Auto-Verkäufe",
+    "predictor_heading": "Auto-Verkaufs-Prognose"
+  },
+  "train_test": {
+    "title": "KI Lernen - Training/Test",
+    "predictor_heading": "Auto-Verkäufe Training/Test"
+  },
+  "plot": {
+    "heading": "Preis vs Kilometer",
+    "loading": "Diagramm wird geladen...",
+    "alt": "Diagramm zum Autopreis"
+  },
+  "prediction_input": {
+    "heading": "Preis nach Kilometer vorhersagen",
+    "placeholder": "Kilometer eingeben",
+    "button": "Vorhersagen",
+    "error": "Bitte gib eine gültige Kilometerzahl ein.",
+    "resultLabel": "Geschätzter Preis:"
   }
 }

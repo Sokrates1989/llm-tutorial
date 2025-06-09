@@ -1,7 +1,9 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 import { usePredictionInput } from "./functions/usePredictionInput";
 
 function PredictionInput() {
+  const { t } = useTranslation();
   const {
     kilometer,
     setKilometer,
@@ -12,10 +14,10 @@ function PredictionInput() {
 
   return (
     <div style={{ marginTop: "2rem" }}>
-      <h3>Predict Price by Kilometer</h3>
+      <h3>{t("prediction_input.heading")}</h3>
       <input
         type="number"
-        placeholder="Enter kilometers"
+        placeholder={t("prediction_input.placeholder")}
         value={kilometer}
         onChange={(e) => setKilometer(e.target.value)}
         min={5000}
@@ -23,12 +25,12 @@ function PredictionInput() {
         step={5000}
         style={{ padding: "0.5rem", marginRight: "1rem" }}
       />
-      <button onClick={handlePredict}>Predict</button>
+      <button onClick={handlePredict}>{t("prediction_input.button")}</button>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p style={{ color: "red" }}>{t("prediction_input.error")}</p>}
       {price !== null && (
-        <p style={{ marginTop: "1rem" }}>
-          🚗 Estimated Price: <strong>€{price}</strong>
+        <p style={{ marginTop: "1rem" }}> 
+          🚗 {t("prediction_input.resultLabel")} <strong>€{price}</strong>
         </p>
       )}
     </div>
