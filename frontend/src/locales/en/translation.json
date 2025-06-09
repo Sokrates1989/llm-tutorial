@@ -1,0 +1,11 @@
+{
+  "sidebar": {
+    "home": "Home",
+    "car_sales": "Car Sales",
+    "train_test": "Train/Test"
+  },
+  "navbar": {
+    "profile": "Profile",
+    "logout": "Logout"
+  }
+}

@@ -1,0 +1,42 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: "Montserrat", sans-serif;
+}
+body {
+  background: #eee;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Flex container for everything except the header */
+.app-body {
+  display: flex;
+  min-height: calc(100vh - 70px);
+}
+
+/* Everything except header and sidebar */
+.page-wrapper {
+  flex: 1;
+}
+
+/* Main content area */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

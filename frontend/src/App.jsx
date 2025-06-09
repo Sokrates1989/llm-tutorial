@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
 // Our main pages.
-import Home  from "./components/Home";
-import CarSales from "./components/car-sales/CarSales";
-import CarSalesTrainTest from "./components/car-sales/CarSalesTrainTest";
+import Home  from "./components/views/Home";
+import CarSales from "./components/views/car-sales/CarSales";
+import CarSalesTrainTest from "./components/views/car-sales/CarSalesTrainTest";
 
 
 function App() {
