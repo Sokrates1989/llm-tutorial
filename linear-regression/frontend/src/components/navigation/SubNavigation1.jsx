@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./navigation.css"; 
+import "./navigation.css";
 
-function Navigation({ currentSelection }) {
+function SubNavigation1({ currentSelection }) {
   const isActive = (id) => (currentSelection === id ? "active" : "");
 
   return (
-    <nav className="main-nav">
+    <nav className="sub-nav-1">
       <Link className={`nav-link ${isActive("home")}`} to="/">Home</Link>
       <Link className={`nav-link ${isActive("contacts")}`} to="/contacts">Contacts</Link>
       <Link className={`nav-link ${isActive("notes")}`} to="/notes">Notes</Link>
@@ -14,4 +14,4 @@ function Navigation({ currentSelection }) {
   );
 }
 
-export default Navigation;
+export default SubNavigation1;
