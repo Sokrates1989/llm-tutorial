@@ -23,8 +23,8 @@ FROM nginx:stable-alpine
 # Copy built app from builder.
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Optional: Replace NGINX config if needed.
-# COPY nginx.conf /etc/nginx/nginx.conf
+# Replace NGINX config to support React routing.
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy entrypoint script
 COPY entrypoint.sh /entrypoint.sh
