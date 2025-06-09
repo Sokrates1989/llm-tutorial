@@ -18,9 +18,10 @@ jobs:
 
       - name: 🧪 Load CI Environment Variables
         run: |
-          set -o allexport
-          source .ci.env
-          set +o allexport
+          while IFS='=' read -r key value
+          do
+            echo "$key=$value" >> $GITHUB_ENV
+          done < .ci.env
       
       - name: 🔍 Debug ENV values
         run: |
