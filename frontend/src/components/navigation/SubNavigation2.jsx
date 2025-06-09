@@ -8,8 +8,8 @@ function SubNavigation2({ currentSelection }) {
   return (
     <nav className="sub-nav-2">
       <Link className={`nav-link ${isActive("home")}`} to="/">Home</Link>
-      <Link className={`nav-link ${isActive("contacts")}`} to="/contacts">Contacts</Link>
-      <Link className={`nav-link ${isActive("notes")}`} to="/notes">Notes</Link>
+      <Link className={`nav-link ${isActive("car-sales")}`} to="/car-sales">Car Sales</Link>
+      <Link className={`nav-link ${isActive("train-test")}`} to="/car-sales-train-test">Train/Test</Link>
     </nav>
   );
 }
