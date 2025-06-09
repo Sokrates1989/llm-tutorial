@@ -26,8 +26,10 @@ jobs:
       - name: 🔍 Debug ENV values
         run: |
           echo "BACKEND_PATH=$BACKEND_PATH"
+          echo "BACKEND_IMAGE_VERSION=$BACKEND_IMAGE_VERSION"
           echo "FRONTEND_PATH=$FRONTEND_PATH"
-
+          echo "FRONTEND_IMAGE_VERSION=$FRONTEND_IMAGE_VERSION"
+          
       - name: 🐳 Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
