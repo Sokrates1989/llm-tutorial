@@ -1,0 +1,40 @@
+name: 🔧 Build and Push Docker Images
+
+on:
+  push:
+    branches: [ main ]
+
+env:
+  FRONTEND_IMAGE: sokrates1989/ai-tut-frontend
+  BACKEND_IMAGE: sokrates1989/ai-tut-backend
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout Code
+        uses: actions/checkout@v3
+
+      - name: 🧪 Load CI Environment Variables
+        run: |
+          while IFS='=' read -r key value
+          do
+            echo "$key=$value" >> $GITHUB_ENV
+          done < .ci.env
+
+      - name: 🐳 Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: 🔐 Docker Login
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: 🚀 Build & Push Backend
+        run: |
+          docker build -t $BACKEND_IMAGE:$BACKEND_IMAGE_VERSION $BACKEND_PATH
+          docker push $BACKEND_IMAGE:$BACKEND_IMAGE_VERSION
+
+      - name: 🚀 Build & Push Frontend
+        run: |
+          docker build -t $FRONTEND_IMAGE:$FRONTEND_IMAGE_VERSION $FRONTEND_PATH
+          docker push $FRONTEND_IMAGE:$FRONTEND_IMAGE_VERSION
