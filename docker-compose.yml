@@ -21,6 +21,8 @@ services:
       context: ${FRONTEND_PATH}
     ports:
       - "${FRONTEND_PORT}:80"
+    environment:
+      - PORT=${FRONTEND_PORT}
     env_file:
       - ${FRONTEND_PATH}/.env
     depends_on:
