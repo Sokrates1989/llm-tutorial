@@ -1,3 +1,75 @@
+/* navigation.css */
+/* Base styles for all navs */
+.main-nav,
+.sub-nav-1,
+.sub-nav-2 {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  overflow-x: auto; /* Allows horizontal scrolling if needed */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.main-nav {
+  background-color: #fcfcfc;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 1rem;
+}
+
+.sub-nav-1 {
+  background-color: #f4f6f8;
+  font-size: 0.95rem;
+  padding: 0.75rem 2rem;
+}
+
+.sub-nav-2 {
+  background-color: #f0f2f5;
+  font-size: 0.9rem;
+  padding: 0.5rem 2rem;
+  border-bottom: 1px dashed #ccc;
+  font-style: italic;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .main-nav,
+  .sub-nav-1,
+  .sub-nav-2 {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    white-space: nowrap;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 0.75rem 1rem !important;
+    text-align: center;
+    border-radius: 4px;
+  }
+
+  /* Hide some navigation levels on mobile if needed */
+  /* .sub-nav-2 {
+    display: none;
+  } */
+}
+
+/* Touch-friendly links */
+.nav-link {
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: inline-block;
+  color: #333;
+  min-width: fit-content; /* For horizontal layout */
+}
+
+/* Hover/active states remain the same */
+
 /* Shared link style */
 .nav-link {
   text-decoration: none;
@@ -19,29 +91,6 @@
   color: #fff;
 }
 
-/* Main navigation bar */
-.main-nav {
-  display: flex;
-  gap: 1rem;
-  background-color: #fcfcfc;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #e0e0e0;
-  font-family: "Segoe UI", sans-serif;
-  margin: 0;
-  font-size: 1rem;
-}
-
-/* Sub nav 1 - slightly lighter than white */
-.sub-nav-1 {
-  display: flex;
-  gap: 0.75rem;
-  background-color: #f4f6f8; /* lighter than main nav, but not white */
-  padding: 0.75rem 2rem;
-  font-size: 0.95rem;
-  border-bottom: 1px solid #e0e0e0;
-  margin: 0;
-}
-
 .sub-nav-1 .nav-link {
   padding: 0.5rem 0.9rem;
 }
@@ -57,18 +106,6 @@
   color: #fff;
 }
 
-
-/* Sub nav 2 - almost matches main content background */
-.sub-nav-2 {
-  display: flex;
-  gap: 0.6rem;
-  background-color: #f0f2f5; /* closer to #eee */
-  padding: 0.5rem 2rem;
-  border-bottom: 1px dashed #ccc;
-  font-size: 0.9rem;
-  font-style: italic;
-  margin: 0;
-}
 
 .sub-nav-2 .nav-link {
   padding: 0.5rem 0.8rem;
@@ -87,3 +124,85 @@
 }
 
 
+
+
+/* Mobile Bottom Nav */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #ffffff;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+  padding: 0.25rem 0;
+  z-index: 1000;
+  border-top: 1px solid #eee;
+}
+
+.mobile-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  text-decoration: none;
+  color: #555;
+  padding: 0.5rem 0;
+  font-size: 0.75rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.mobile-tab .nav-icon {
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.mobile-tab.active {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.mobile-tab.active .nav-icon {
+  color: #007bff;
+}
+
+
+/* Mobile Accordion */
+.mobile-accordion {
+  margin: 0;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 1rem;
+  text-align: left;
+  background: #f8f9fa;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordion-content.open {
+  max-height: 500px;
+}
+
+/* Responsive Visibility */
+@media (max-width: 768px) {
+  .desktop-nav { display: none; }
+  .mobile-bottom-nav { display: flex; }
+  .mobile-nav { display: block; }
+}
+
+@media (min-width: 769px) {
+  .mobile-nav, .mobile-bottom-nav { display: none; }
+}
