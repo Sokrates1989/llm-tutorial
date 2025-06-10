@@ -20,7 +20,7 @@ function Footer() {
       <p>Copyright © {currentYear} {companyName}. {t("footer.rights_reserved")}</p>
       <p>
         <small style={{ fontSize: "0.8rem"}}>
-        Backend: {backendUrl}, Image: {imageTag}
+        Backend: {backendUrl}, Frontend-Version: {imageTag}
         </small>
       </p>
       <br />
