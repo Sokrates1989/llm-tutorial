@@ -27,5 +27,13 @@ window._env_ = {
 };
 EOF
 
+# Print access links.
+HOSTNAME=$(hostname -i)
+PORT="${PORT:-80}"
+echo "🌐 React frontend is now accessible at:"
+echo "   👉 http://localhost:$PORT"
+echo "   👉 http://$HOSTNAME:$PORT (within Docker network)"
+echo ""
+
 # Then start NGINX
 exec nginx -g "daemon off;"

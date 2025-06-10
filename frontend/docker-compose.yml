@@ -9,4 +9,5 @@ services:
     environment:
       - VITE_BACKEND_URL=${VITE_BACKEND_URL}
       - VITE_COMPANY_NAME=${VITE_COMPANY_NAME}
+      - PORT=${PORT} 
       - CHOKIDAR_USEPOLLING=true  # Needed for hot reload on some OS
