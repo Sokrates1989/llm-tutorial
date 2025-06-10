@@ -47,8 +47,44 @@ jobs:
       - name: 🚀 Build & Push Frontend
         run: |
           docker buildx build --load \
-            --build-arg IMAGE_TAG=$FRONTEND_IMAGE_VERSION \
+            --build-arg VITE_IMAGE_TAG=$FRONTEND_IMAGE_VERSION \
             -t $FRONTEND_IMAGE:$FRONTEND_IMAGE_VERSION \
             $FRONTEND_PATH
           docker push $FRONTEND_IMAGE:$FRONTEND_IMAGE_VERSION
 
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔐 Setup SSH Agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: 🚀 Deploy to Server
+        env:
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          BACKEND_IMAGE_VERSION: ${{ env.BACKEND_IMAGE_VERSION }}
+          FRONTEND_IMAGE_VERSION: ${{ env.FRONTEND_IMAGE_VERSION }}
+        run: |
+          ssh -o StrictHostKeyChecking=no -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" << EOF
+            set -e
+
+            cd /swarm/prod/react/ai-tut
+
+            echo "📝 Updating .env with image versions..."
+            sed -i 's/^BACKEND_IMAGE_VERSION=.*/BACKEND_IMAGE_VERSION='"$BACKEND_IMAGE_VERSION"'/' .env
+            sed -i 's/^FRONTEND_IMAGE_VERSION=.*/FRONTEND_IMAGE_VERSION='"$FRONTEND_IMAGE_VERSION"'/' .env
+
+            echo "🚢 Deploying stack..."
+            docker stack deploy -c <(docker-compose -f docker-stack.yml config) ai-tut
+
+            echo "⏳ Waiting for stack to stabilize..."
+            sleep 30
+
+            echo "🔍 Service status:"
+            docker stack services ai-tut
+          EOF
