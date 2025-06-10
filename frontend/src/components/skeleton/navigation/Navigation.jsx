@@ -10,8 +10,8 @@ function Navigation({ currentSelection }) {
   return (
     <nav className="main-nav">
       <Link className={`nav-link ${isActive("home")}`} to="/">{t("sidebar.home")}</Link>
-      <Link className={`nav-link ${isActive("car-sales")}`} to="/car-sales">{t("sidebar.car_sales")}</Link>
-      <Link className={`nav-link ${isActive("train-test")}`} to="/car-sales-train-test">{t("sidebar.train_test")}</Link>
+      <Link className={`nav-link ${isActive("car_sales")}`} to="/car-sales">{t("sidebar.car_sales")}</Link>
+      <Link className={`nav-link ${isActive("train_test")}`} to="/car-sales-train-test">{t("sidebar.train_test")}</Link>
     </nav>
   );
 }
