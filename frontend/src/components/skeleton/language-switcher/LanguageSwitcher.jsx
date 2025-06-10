@@ -15,7 +15,7 @@ function LanguageSwitcher() {
   const [open, setOpen] = useState(false);
   const switcherRef = useRef();
 
-  const currentLang = i18n.language in LANGUAGES ? i18n.language : 'en';
+  const currentLang = i18n.resolvedLanguage in LANGUAGES ? i18n.resolvedLanguage : 'en';
 
   const handleClickOutside = (e) => {
     if (switcherRef.current && !switcherRef.current.contains(e.target)) {
