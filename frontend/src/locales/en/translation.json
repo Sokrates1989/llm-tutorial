@@ -2,7 +2,8 @@
   "sidebar": {
     "home": "Home",
     "car_sales": "Car Sales",
-    "train_test": "Train/Test"
+    "train_test": "Train/Test",
+    "regression": "Regression"
   },
   "navbar": {
     "profile": "Profile",

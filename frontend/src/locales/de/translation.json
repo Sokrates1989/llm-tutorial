@@ -2,7 +2,8 @@
   "sidebar": {
     "home": "Startseite",
     "car_sales": "Auto-Verkäufe",
-    "train_test": "Training/Test"
+    "train_test": "Training/Test",
+    "regression": "Regression"
   },
   "navbar": {
     "profile": "Profil",

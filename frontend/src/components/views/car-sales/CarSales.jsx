@@ -25,7 +25,7 @@ function CarSales() {
       />
       <div className="app-body">
         <Sidebar 
-          currentSelection="car_sales" 
+          currentSelection="regression" 
           isOpen={sidebarOpen}
           onClose={() => setSidebarOpen(false)}
         />

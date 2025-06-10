@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from 'react-i18next';
 import { Link } from "react-router-dom";
-import { FaHome, FaCar, FaFlask, FaTimes  } from "react-icons/fa";
+import { FaHome, FaChartLine, FaFlask, FaTimes  } from "react-icons/fa";
 import "./sidebar.css";
 
 function Sidebar({ currentSelection, isOpen, onClose }) {
@@ -17,11 +17,8 @@ function Sidebar({ currentSelection, isOpen, onClose }) {
         <Link className={`sidebar-link ${isActive("home")}`} to="/">
           <FaHome className="icon" /> {t("sidebar.home")}
         </Link>
-        <Link className={`sidebar-link ${isActive("car_sales")}`} to="/car-sales">
-          <FaCar className="icon" /> {t("sidebar.car_sales")}
-        </Link>
-        <Link className={`sidebar-link ${isActive("train_test")}`} to="/car-sales-train-test">
-          <FaFlask className="icon" /> {t("sidebar.train_test")}
+        <Link className={`sidebar-link ${isActive("regression")}`} to="/car-sales">
+          <FaChartLine  className="icon" /> {t("sidebar.regression")}
         </Link>
       </nav>
     </aside>
