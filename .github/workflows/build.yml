@@ -1,4 +1,4 @@
-name: 🔧 Build and Push Docker Images
+name: 🔧 Full CI CD Pipeline with image build, push and deployment on production server.
 
 on:
   push:
@@ -9,7 +9,7 @@ env:
   BACKEND_IMAGE: sokrates1989/ai-tut-backend
 
 jobs:
-  build-and-push:
+  image-build-and-publish:
     runs-on: ubuntu-latest
 
     steps:
@@ -53,10 +53,25 @@ jobs:
           docker push $FRONTEND_IMAGE:$FRONTEND_IMAGE_VERSION
 
   deploy:
-    needs: build-and-push
+    needs: image-build-and-publish
     runs-on: ubuntu-latest
 
     steps:
+      - name: ⬇️ Checkout Code
+        uses: actions/checkout@v3
+
+      - name: 🧪 Load CI Environment Variables
+        run: |
+          while IFS='=' read -r key value
+          do
+            echo "$key=$value" >> $GITHUB_ENV
+          done < .ci.env
+
+      - name: 🔍 Debug ENV values
+        run: |
+          echo "BACKEND_IMAGE_VERSION=$BACKEND_IMAGE_VERSION"
+          echo "FRONTEND_IMAGE_VERSION=$FRONTEND_IMAGE_VERSION"
+
       - name: 🔐 Setup SSH Agent
         uses: webfactory/ssh-agent@v0.9.0
         with:
