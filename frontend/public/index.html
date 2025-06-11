@@ -2,20 +2,43 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Responsive Design -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- PWA Theming -->
     <meta name="theme-color" content="#000000" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Android PWA Support -->
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- iOS PWA Support (still needed for some functionality despite being deprecated) -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="AI Tutorial" />
+
+    <!-- App Title -->
     <title>AI Tutorial</title>
-    <link rel="icon" href="/favicon-vite.ico" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/icons/favicon-vite.ico" />
+
+    <!-- Touch Icon for iOS -->
+    <link rel="apple-touch-icon" href="/icons/vite-192x192.png" />
+
+    <!-- Optional: Manifest for full PWA experience -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Global stylesheet for basic layout and resets -->
+    <!-- 📌 Prefer loading component-specific styles dynamically instead of growing this file or adding more style sheets-->
     <link rel="stylesheet" href="/main.css" />
+
   </head>
 
   <body>
     <div id="root"></div>
 
     <!-- 🧠 Load runtime environment variables -->
-    <!-- %ENV_SCRIPT% -->
     <script src="/env.js"></script>
 
     <!-- 🔁 Start Vite-powered app -->
