@@ -1,6 +1,6 @@
 {
-  "name": "Vite React Docker App",
-  "short_name": "ViteApp",
+  "name": "AI Tutorial",
+  "short_name": "AI Tutorial",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
